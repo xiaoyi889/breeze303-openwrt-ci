@@ -40,8 +40,7 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
-        sudo rm -rf /etc/apt/sources.list.d/* /usr/share/dotnet /usr/local/lib/android /opt/ghc
-        sudo apt update -y
+        sudo -E apt update -y
         sudo -E apt -yqq install dos2unix
         sudo -E apt -yqq install libfuse-dev
         sudo -E apt -yqq install build-essential clang flex bison g++ gawk gcc-multilib g++-multilib gettext git libncurses5-dev libssl-dev
