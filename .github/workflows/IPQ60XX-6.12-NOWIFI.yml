@@ -52,7 +52,7 @@ jobs:
         sudo -E systemctl daemon-reload
         sudo timedatectl set-timezone "$TZ"
         sudo -E python --version
-        sudo -E pip install setuptools
+        sudo -H pip install setuptools
 
     - name: Combine Disks(合并磁盘)
       uses: easimon/maximize-build-space@master
