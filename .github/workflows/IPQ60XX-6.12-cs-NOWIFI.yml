@@ -41,7 +41,7 @@ jobs:
         DEBIAN_FRONTEND: noninteractive
       run: |
         sudo -E apt-get -y update
-        sudo -E apt-get -qq install libfuse-dev $(curl -fsSL https://tinyurl.com/ubuntu2204-make-openwrt)
+        sudo -E apt-get -y install $(cat $GITHUB_WORKSPACE/diy/ubuntu2204-openwrt-depends)
         sudo -E systemctl daemon-reload
         sudo -E apt-get -y autoremove --purge
         sudo -E apt-get -y clean
