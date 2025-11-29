@@ -10,11 +10,12 @@ env:
   REPO_BRANCH: k6.12-nss
   CONFIG_FILE: configs/ipq60xx-6.12-nowifi.config
   DIY_SCRIPT: libwrt.sh
+  DIY1_SCRIPT: diy/ubuntu2204-openwrt-depends
   CLASH_KERNEL: amd64
   CACHE_TOOLCHAIN: true
   UPLOAD_BIN_DIR: false
   FIRMWARE_RELEASE: true
-  FIRMWARE_TAG: IPQ60XX-6.12-cs-NOWIFI
+  FIRMWARE_TAG: IPQ60XX-6.12-NOWIFI
   TZ: Asia/Shanghai
 
 jobs:
@@ -41,7 +42,7 @@ jobs:
         DEBIAN_FRONTEND: noninteractive
       run: |
         sudo -E apt-get -y update
-        sudo -E apt-get -y install $(cat $GITHUB_WORKSPACE/diy/ubuntu2204-openwrt-depends)
+        sudo -E apt-get -y install $(cat $DIY1_SCRIPT)
         sudo -E systemctl daemon-reload
         sudo -E apt-get -y autoremove --purge
         sudo -E apt-get -y clean
